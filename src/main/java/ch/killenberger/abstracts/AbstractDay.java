@@ -4,6 +4,9 @@ import ch.killenberger.utils.FileUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.List;
 
 public class AbstractDay {
     private static final String INPUT_PREFIX         = "input_day_";
@@ -29,5 +32,9 @@ public class AbstractDay {
         if(this.inputFile == null || !this.inputFile.exists()) {
             throw new FileNotFoundException("File " + FileUtil.getFilePath(this.inputFile) + " does not exist");
         }
+    }
+
+    protected List<String> readInput() throws IOException {
+        return Files.readAllLines(this.inputFile.toPath());
     }
 }

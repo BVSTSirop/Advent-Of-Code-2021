@@ -18,7 +18,7 @@ public class Day1 extends AbstractDay implements Day<Integer> {
     public Integer run() throws IOException {
         checkInputFile();
 
-        final List<String> lines =  Files.readAllLines(this.inputFile.toPath());
+        final List<String>  lines        = readInput();
         final List<Integer> measurements = ListUtil.convertToIntegerList(lines);
 
         return countIncreasedMeasurements(measurements);
