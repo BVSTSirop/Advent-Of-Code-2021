@@ -30,32 +30,32 @@ public class Day1_2 extends AbstractDay implements Day<Integer> {
             throw new FileNotFoundException("File " + FileUtil.getFilePath(this.inputFile) + " does not exist");
         }
 
-        final List<String>        lines =  Files.readAllLines(this.inputFile.toPath());
-        final List<Integer>       measurements = ListUtil.convertToIntegerList(lines);
-        final List<List<Integer>> segments = Lists.partition(measurements, 3);
+        final List<String>  lines =  Files.readAllLines(this.inputFile.toPath());
+        final List<Integer> measurements = ListUtil.convertToIntegerList(lines);
 
-        return countIncreasedMeasurements(segments);
+        return countIncreasedMeasurements(measurements);
     }
 
-    private Integer countIncreasedMeasurements(final List<List<Integer>> measureSegments) {
-        int count = 0;
+    private Integer countIncreasedMeasurements(final List<Integer> l) {
+        final int lSize = l.size();
+
+        int     count    = 0;
         Integer previous = null;
 
-        for(List<Integer> l : measureSegments) {
-            Integer sum = l.stream().reduce(0, Integer::sum);
-            System.out.println("---------");
-            System.out.println("List:         " + l);
-            System.out.println("Segment sum:  " + sum);
-            System.out.println("Previous max: " + previous);
-            System.out.println("---------");
+        int subEndIndex;
+        for(int i = 0; i < lSize; i++) {
+            subEndIndex = i + 3;
 
-            if(previous != null) {
-                if(sum > previous) {
+            if(subEndIndex <= lSize) {
+                final List<Integer> sub = l.subList(i, subEndIndex);
+                final Integer       sum = sub.stream().reduce(0, Integer::sum);
+
+                if(previous != null && sum > previous) {
                     count++;
                 }
-            }
 
-            previous = sum;
+                previous = sum;
+            }
         }
 
         return count;
