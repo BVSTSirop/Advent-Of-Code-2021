@@ -42,9 +42,8 @@ public class Day1_2 extends AbstractDay implements Day<Integer> {
         int     count    = 0;
         Integer previous = null;
 
-        int subEndIndex;
         for(int i = 0; i < lSize; i++) {
-            subEndIndex = i + 3;
+            final int subEndIndex = i + 3;
 
             if(subEndIndex <= lSize) {
                 final List<Integer> sub = l.subList(i, subEndIndex);
