@@ -25,7 +25,7 @@ public class Day2 extends AbstractDay implements Day<Integer> {
     public Integer run() throws IOException {
         checkInputFile();
 
-        final List<String> lines = readInput();
+        final List<String> lines       = readInput();
         final Map<String, Integer> map = mapInput(lines);
 
         int horizontal = map.get(FORWARD);
