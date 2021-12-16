@@ -88,8 +88,8 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
         if(mostCommon) {
             return calculateMostCommonBitAtPosition(new ArrayList<>(q), pos);
         }
-        
-        return calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);;
+
+        return calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);
     }
 
 }
