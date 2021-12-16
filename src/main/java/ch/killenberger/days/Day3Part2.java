@@ -73,7 +73,6 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
             cMap.put(s.toCharArray()[pos]);
         }
 
-
         if(cMap.get(ZERO).equals(cMap.get(ONE))) {
             return defaultReturn;
         }
