@@ -85,14 +85,11 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
     }
 
     private char calculateCharToMatch(final ConcurrentLinkedQueue<String> q, final int pos, final boolean mostCommon) {
-        final char charToMatch;
         if(mostCommon) {
-            charToMatch = calculateMostCommonBitAtPosition(new ArrayList<>(q), pos);
-        } else {
-            charToMatch = calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);
+            return calculateMostCommonBitAtPosition(new ArrayList<>(q), pos);
         }
-
-        return charToMatch;
+        
+        return calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);;
     }
 
 }
