@@ -17,6 +17,10 @@ public class CumulativeMap<K> {
         }
     }
 
+    public void put(K key) {
+        this.put(key, 1);
+    }
+
     public Integer get(K key) {
         Map.Entry<K, Integer> e = findEntryByKey(key);
 
@@ -27,6 +31,34 @@ public class CumulativeMap<K> {
         return e.getValue();
     }
 
+    public Map.Entry<K, Integer> getEntry(final K key) {
+        return findEntryByKey(key);
+    }
+
+    public Map.Entry<K, Integer> getHighestValueEntry() {
+        Map.Entry<K, Integer> highest = null;
+
+        for(Map.Entry<K, Integer> entry : entries) {
+            if(highest == null || highest.getValue() < entry.getValue()) {
+                highest = entry;
+            }
+        }
+
+        return highest;
+    }
+
+    public Map.Entry<K, Integer> getLowestValueEntry() {
+        Map.Entry<K, Integer> lowest = null;
+
+        for(Map.Entry<K, Integer> entry : entries) {
+            if(lowest == null || lowest.getValue() > entry.getValue()) {
+                lowest = entry;
+            }
+        }
+
+        return lowest;
+    }
+
     public Map<K, Integer> toMap() {
         final Map<K, Integer> m = new HashMap<>();
 
@@ -35,6 +67,10 @@ public class CumulativeMap<K> {
         }
 
         return m;
+    }
+
+    public void clear() {
+        this.entries.clear();
     }
 
     private Map.Entry<K, Integer> findEntryByKey(K key) {
