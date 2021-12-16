@@ -91,5 +91,4 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
 
         return calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);
     }
-
 }
