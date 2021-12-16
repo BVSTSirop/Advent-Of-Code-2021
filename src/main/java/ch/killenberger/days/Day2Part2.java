@@ -1,12 +1,10 @@
 package ch.killenberger.days;
 
-import ch.killenberger.CumulativeMap;
 import ch.killenberger.abstracts.AbstractDay;
 import ch.killenberger.interfaces.Day;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 // Sonar Sweep
 public class Day2Part2 extends AbstractDay implements Day<Integer> {
@@ -14,9 +12,9 @@ public class Day2Part2 extends AbstractDay implements Day<Integer> {
     private static final String UP      = "up";
     private static final String DOWN    = "down";
 
-    public int aim        = 0;
-    public int horizontal = 0;
-    public int depth      = 0;
+    private int aim        = 0;
+    private int horizontal = 0;
+    private int depth      = 0;
 
     public Day2Part2(final String day) {
         super(day);

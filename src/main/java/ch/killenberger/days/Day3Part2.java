@@ -3,7 +3,6 @@ package ch.killenberger.days;
 import ch.killenberger.CumulativeMap;
 import ch.killenberger.abstracts.AbstractDay;
 import ch.killenberger.interfaces.Day;
-import com.google.common.collect.Lists;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
         return decimalOxygenRating * decimalCO2Rating;
     }
 
-    public String calculateRating(final List<String> lines, boolean mostCommon) {
+    private String calculateRating(final List<String> lines, boolean mostCommon) {
         final ConcurrentLinkedQueue<String> q = new ConcurrentLinkedQueue<>(lines);
 
         for(int pos = 0; pos < this.lineLength; pos++) {
@@ -58,11 +57,11 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
         return q.poll();
     }
 
-    public char calculateMostCommonBitAtPosition(final List<String> l, final int pos) {
+    private char calculateMostCommonBitAtPosition(final List<String> l, final int pos) {
         return calculateCommonBitAtPosition(l, pos, ONE, false);
     }
 
-    public char calculateLeastCommonBitAtPosition(final List<String> l, final int pos) {
+    private char calculateLeastCommonBitAtPosition(final List<String> l, final int pos) {
         return calculateCommonBitAtPosition(l, pos, ZERO, true);
     }
 

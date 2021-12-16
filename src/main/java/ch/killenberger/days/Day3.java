@@ -32,7 +32,7 @@ public class Day3 extends AbstractDay implements Day<Integer> {
         return decimalGammaRate * decimalEpsilonRate;
     }
 
-    public String calculateGammaRate(final List<String> l) {
+    private String calculateGammaRate(final List<String> l) {
         final StringBuilder            sb   = new StringBuilder(lineLength);
         final CumulativeMap<Character> cMap = new CumulativeMap<>();
 

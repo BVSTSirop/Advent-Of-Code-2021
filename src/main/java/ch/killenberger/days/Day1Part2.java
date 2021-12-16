@@ -5,7 +5,6 @@ import ch.killenberger.interfaces.Day;
 import ch.killenberger.utils.ListUtil;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
 
 // Sonar Sweep
