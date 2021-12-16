@@ -42,16 +42,10 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
         final ConcurrentLinkedQueue<String> q = new ConcurrentLinkedQueue<>(lines);
 
         for(int pos = 0; pos < this.lineLength; pos++) {
-
-            final char charToMatch;
-            if(mostCommon) {
-                charToMatch = calculateMostCommonBitAtPosition(new ArrayList<>(q), pos);
-            } else {
-                charToMatch = calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);
-            }
+            final char match = calculateCharToMatch(q, pos, mostCommon);
 
             for(String s : q) {
-                if(s.toCharArray()[pos] != charToMatch) {
+                if(s.toCharArray()[pos] != match) {
                     q.remove(s);
                 }
             }
@@ -89,6 +83,17 @@ public class Day3Part2 extends AbstractDay implements Day<Integer> {
         }
 
         return cMap.getHighestValueEntry().getKey();
+    }
+
+    private char calculateCharToMatch(final ConcurrentLinkedQueue<String> q, final int pos, final boolean mostCommon) {
+        final char charToMatch;
+        if(mostCommon) {
+            charToMatch = calculateMostCommonBitAtPosition(new ArrayList<>(q), pos);
+        } else {
+            charToMatch = calculateLeastCommonBitAtPosition(new ArrayList<>(q), pos);
+        }
+
+        return charToMatch;
     }
 
 }
