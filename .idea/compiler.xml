@@ -9,8 +9,5 @@
         <module name="Advent-Of-Code-2021" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Advent-Of-Code-2021" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
